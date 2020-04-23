@@ -31,8 +31,23 @@ export default (theCanvas) => {
     ctx.fillStyle = "black";
   };
 
+  const drawFood = ({ pos: { x, y }, radius }) => {
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, 2 * Math.PI, false);
+    ctx.fillStyle = `rgb(0.1, 0.1, 0.1)`;
+    ctx.fill();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "#003300";
+    ctx.stroke();
+    ctx.fillStyle = "black";
+  };
+
   let lastRender = 0;
-  const updateEngine = makeEngine({ drawMainCircle, drawOuterCircle });
+  const updateEngine = makeEngine({
+    drawMainCircle,
+    drawOuterCircle,
+    drawFood,
+  });
 
   const loop = (timestamp) => {
     ctx.clearRect(0, 0, theCanvas.width, theCanvas.height);

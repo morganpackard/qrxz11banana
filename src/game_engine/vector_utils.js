@@ -6,6 +6,7 @@ export const vectorFrom2Points = (p1, p2) => {
 
 export const magnitude = (point) =>
   Math.sqrt(point.x * point.x + point.y * point.y);
+
 export const normalize = (point) => {
   const normalized = new Victor(point.x, point.y).normalize();
   return { x: normalized.x, y: normalized.y };
@@ -20,3 +21,13 @@ export const subtract = (vec1, vec2) => ({
   x: vec1.x - vec2.x,
   y: vec1.y - vec2.y,
 });
+
+export const diff = (a, b) => {
+  const newVec = { x: a.x - b.x, y: a.y - b.y };
+  return newVec;
+};
+
+export const distance = (a, b) => {
+  const { x, y } = diff(a, b);
+  return Math.sqrt(x * x + y * y);
+};

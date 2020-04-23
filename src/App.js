@@ -7,7 +7,7 @@ function App() {
   useEffect(() => {
     runGame(theCanvas.current);
   }, [theCanvas]);
-  return <canvas ref={theCanvas} width={640} height={425} />;
+  return <canvas ref={theCanvas} width={2640} height={2425} />;
 }
 
 export default App;
